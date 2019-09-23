@@ -46,14 +46,14 @@ function console_log($output, $with_script_tags = true) {
 			//if ($eqLogicDahua->getConfiguration('type') == 'ESXi') {
             	console_log('ESXI trouvé ' . $eqLogicDahua->getConfiguration('name') . '');
 				echo '<div class="eqLogicThumbnailContainer">'; 
-					echo '<div class="eqLogicAction cursor synchronisation"  data-id="' . $eqLogicDahua->getId() . '">'; // l'action est traitée dans le dahua.js le data-id permet de récupérer l'info dans le JS pour transmettre l'appel à la fonction refresh pour l'ESXi en question uniquement // on se base sur le terme synchronisation pour le retrouver dans le JS
-					echo '<img src="plugins/dahua/docs/assets/images/icone_synchronisation.png">'; // générée via cette page https://gauger.io/fonticon/
-					echo '<br>';
-					echo '<br>';
-					echo '<span class="name">{{Synchroniser}}</span>'; 
-					echo '<br>';
-					echo '<br>';
-					echo '</div>';
+					// echo '<div class="eqLogicAction cursor synchronisation"  data-id="' . $eqLogicDahua->getId() . '">'; // l'action est traitée dans le dahua.js le data-id permet de récupérer l'info dans le JS pour transmettre l'appel à la fonction refresh pour l'ESXi en question uniquement // on se base sur le terme synchronisation pour le retrouver dans le JS
+					// echo '<img src="plugins/dahua/docs/assets/images/icone_synchronisation.png">'; // générée via cette page https://gauger.io/fonticon/
+					// echo '<br>';
+					// echo '<br>';
+					// echo '<span class="name">{{Synchroniser}}</span>'; 
+					// echo '<br>';
+					// echo '<br>';
+					// echo '</div>';
 				$opacity = ($eqLogicDahua->getIsEnable()) ? '' : 'disableCard';
 				echo '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogicDahua->getId() . '">';
 				////On affiche une image différente pour le serveur ESXi pour le répérer plus facilement
