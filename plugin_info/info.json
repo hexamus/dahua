@@ -1,0 +1,16 @@
+{
+	"id" : "dahua",
+	"name" : "Dahua",
+	"description" : "Plugin permettant de récupérer et piloter les portiers Dahua",
+	"licence" : "AGPL",
+	"author" : "TaG",
+	"require" : "3.3.24",
+	"category" : "monitoring",
+	"hasDependency" : false,
+	"hasOwnDeamon" : false,
+	"maxDependancyInstallTime" : 0,
+	"changelog" : "https://taggou91.github.io/jeedom_docs/plugins/dahua/changelog.html",
+	"documentation" : "https://taggou91.github.io/jeedom_docs/plugins/dahua/",
+	"language" : ["fr_FR"],
+	"compatibility" : ["diy"]
+}
