@@ -98,7 +98,7 @@ class dahua extends eqLogic {
 					$videoTalkLog->setOrder(2);
 				}
 					$videoTalkLog->setName(__('Log Appel Vidéo', __FILE__));
-					$videoTalkLog->setLogicalId('cpuNumber');
+					$videoTalkLog->setLogicalId('videoTalkLog');
 					$videoTalkLog->setEqLogic_id($this->getId());
 					$videoTalkLog->setType('action');
 					$videoTalkLog->setSubType('other');
