@@ -157,18 +157,12 @@ class dahua extends eqLogic {
 		//$password = $eqLogics->getConfiguration("password"); // on récupère le password
 		//$login = $eqLogics->getConfiguration("login"); // on récupère le login
 		$hostIP = $eqLogics->getConfiguration("ipAddress"); // on récupère l'adresseIP
-		log::add('dahua', 'debug', 'Login utilisé : ' . $login . ' - Ip du portier : ' . $hostIP); 
+		log::add('dahua', 'debug', 'Login utilisé : ' . $login . ' - Ip du portier : ' . $hostIP .''); 
 		log::add('dahua', 'debug', 'ActionType : ' . $actionType . ' - Nom du portier : ' . $portierHostName . ' - Ip du portier : ' . $portierHostIpAddress . ''); 
-		
-		log::add('dahua', 'debug', 'Liste des paramètres transmis : ');
-		//log::add('dahua', 'debug', 'SnapName : '. $snapName);
-		// log::add('dahua', 'debug', 'snapDescription : '. $snapDescription );
-		// log::add('dahua', 'debug', 'memory : '. $memory);
-		
-		// Récupération de l'ID et execution de la commande souhaitée dans la foulée (xargs ne fonctionne pas PIPE ne fonctionne pas)
+				
 		log::add('dahua', 'debug', 'ELSE - action autre qu\'un snapshot create ou remove');
 		//curl --user $login:$password --digest "http://192.168.50.110/cgi-bin/accessControl.cgi?action=openDoor&channel=1&UserID=101&Type=Remote"
-		curl --user $login:$password --digest "http://".$hostIP."/cgi-bin/accessControl.cgi?action=".$actionType."&channel=1&UserID=101&Type=Remote";
+	//curl --user $login:$password --digest "http://".$hostIP."/cgi-bin/accessControl.cgi?action=".$actionType."&channel=1&UserID=101&Type=Remote";
 				
 		log::add('dahua', 'info', 'Fin fonction actionOnPortier'); 
 		//return $result; // a voir ce que l'on peut faire de ça, besoin réel ?	
@@ -207,56 +201,11 @@ class dahuaCmd extends cmd {
 		switch ($this->getLogicalId()) {				
 		case 'refresh':  
 			log::add('dahua', 'debug', 'On est dans le case refresh de la class dahuaCmd '); 
-			// if($eqlogic->getConfiguration("type") == 'portier'){
-				// log::add('dahua', 'debug', 'On appel la fonction getportierInformationList '); 
-				// $return = $eqlogic->getportierInformationList() ;
-				// log::add('dahua', 'debug', 'On appel la fonction getvmInformationList '); 
-				// $vmListing = $eqlogic->getVmInformationList() ; //Lance la fonction pour récupérer la liste des VMs et stocke le résultat dans vmListing
-				// $eqlogic->checkAndUpdateCmd('nbVM', $vmListing[1]); // stocke le contenu de vmListing dans la commande nbVM
-				// $eqlogic->checkAndUpdateCmd('vmList', $vmListing[0]); // stocke le contenu de vmListing dans la commande vmList
-				// $eqlogic->setConfiguration('portierHost',$vmListing[2]); // stocke le contenu de vmListing dans la commande hoteportier
-				// $eqlogic->setConfiguration('type',$vmListing[3]); // stocke le contenu de vmListing dans la commande type
-			// }else if($eqlogic->getConfiguration("type") == 'vm') {
-				// log::add('dahua', 'debug', 'C\'est une VM que l\'on va mettre à jour '); 
-				// $eqlogic->updateVmInformations($eqlogic->getConfiguration("name"),$eqlogic->getConfiguration("portierHost")) ;
-			// }else {
-				// log::add('dahua', 'debug', 'Ca n\'est pas un portier, on ne rafraichit rien'); 
-			// }
             break;
-		// case 'takeSnapshot': 
-				// log::add('dahua', 'info', 'On appelle la fonction actionOnPortier - takesnapshot pour : ' . $eqlogic->getConfiguration("portierHost") . ' '); 
-				// log::add('dahua', 'debug', 'Valeur retrouvée dans l\'appel du scénario : champ Nom : ' . $options['Nom'] . ' ');
-				// log::add('dahua', 'debug', 'Valeur retrouvée dans l\'appel du scénario : champ Description :  ' . $options['Description'] . ' ');
-				// log::add('dahua', 'debug', 'Valeur retrouvée dans l\'appel du scénario : champ Memory : ' . $_options['message']  .' '); // Attention on attaque bien le champ $_options (transmis à la fonction execute, pas au tableau créé un peu plus haut
-				// $memory = $_options['message'];
-				// log::add('dahua', 'debug', 'Valeur retrouvée dans l\'appel du scénario : champ Memory dans variable memory : ' . $memory . ' '); // Attention on attaque bien le champ $_options (transmis à la fonction execute, pas au tableau créé un peu plus haut
-				// $memory = str_replace(array("NON","OUI"), array("0","1"), $memory ); // On envoi 0 ou 1 selon l'état de la mémoire souhaité lors du snapshot
-				// $action = $eqlogic->actionOnPortier('snapshot.create',$options['Nom'],$options['Description'],$memory);
-			// break;
-		// case 'deleteSnapshot':	
-				// log::add('dahua', 'info', 'On appelle la fonction actionOnPortier - snapshot delete');  
-				// $action = $eqlogic->actionOnPortier('snapshot.remove',$options['Nom'],'',''); // liste ou saisie manuelle ?)
-			// break;
 		case 'openDoor':	
-				log::add('dahua', 'info', 'On appelle la fonction actionOnPortier - openDoor'); 
-				$action = $eqlogic->actionOnPortier('openDoor');
+			log::add('dahua', 'info', 'On appelle la fonction actionOnPortier - openDoor'); 
+			$action = $eqlogic->actionOnPortier('openDoor');
 			break;
-		// case 'rebootOS':	
-				// log::add('dahua', 'info', 'On appelle la fonction actionOnPortier - rebootOS'); 
-				// $action = $eqlogic->actionOnPortier('power.reboot');
-			// break;
-		// case 'stop':	
-				// log::add('dahua', 'info', 'On appelle la fonction actionOnPortier - stop'); 
-				// $action = $eqlogic->actionOnPortier('power.off');
-			// break;
-		// case 'stopOS':	
-				// log::add('dahua', 'info', 'On appelle la fonction actionOnPortier - stopOS'); 
-				// $action = $eqlogic->actionOnPortier('power.shutdown');
-			// break;
-		// case 'powerOn':	
-				// log::add('dahua', 'info', 'On appelle la fonction actionOnPortier - powerOn'); 
-				// $action = $eqlogic->actionOnPortier('power.on');
-			// break;
 		}
 		log::add('dahua', 'info', 'Fin fonction execute');
     }
