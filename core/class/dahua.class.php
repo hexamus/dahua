@@ -74,8 +74,8 @@ class dahua extends eqLogic {
 					$openDoor->setName(__('Déverouillage', __FILE__));
 					$openDoor->setLogicalId('openDoor');
 					$openDoor->setEqLogic_id($this->getId());
-					$openDoor->setType('info');
-					$openDoor->setSubType('string');
+					$openDoor->setType('action');
+					$openDoor->setSubType('other');
 					$openDoor->save();
 					log::add('dahua', 'info', 'Création/Maj de la commande openDoor dans l\'équipement portier');
 				
@@ -87,8 +87,8 @@ class dahua extends eqLogic {
 					$accessControl->setName(__('Contrôle d\'accès', __FILE__));
 					$accessControl->setLogicalId('accessControl');
 					$accessControl->setEqLogic_id($this->getId());
-					$accessControl->setType('info');
-					$accessControl->setSubType('string');
+					$accessControl->setType('action');
+					$accessControl->setSubType('other');
 					$accessControl->save();
 					log::add('dahua', 'info', 'Création/Maj de la commande accessControl dans l\'équipement portier');	
 					
@@ -100,8 +100,8 @@ class dahua extends eqLogic {
 					$videoTalkLog->setName(__('Log Appel Vidéo', __FILE__));
 					$videoTalkLog->setLogicalId('cpuNumber');
 					$videoTalkLog->setEqLogic_id($this->getId());
-					$videoTalkLog->setType('info');
-					$videoTalkLog->setSubType('string');
+					$videoTalkLog->setType('action');
+					$videoTalkLog->setSubType('other');
 					$videoTalkLog->save();	 
 					log::add('dahua', 'info', 'Création/Maj de la commande videoTalkLog dans l\'équipement portier');
 								
