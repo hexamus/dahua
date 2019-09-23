@@ -155,10 +155,10 @@ class dahua extends eqLogic {
 		//$eqLogics = eqLogic::byLogicalId('dahua'.$portierHostName,'dahua');
 		
 		//$password = $eqLogics->getConfiguration("password"); // on récupère le password
-		//$login = $eqLogics->getConfiguration("login"); // on récupère le login
-		$hostIP = $eqLogics->getConfiguration("ipAddress"); // on récupère l'adresseIP
+		$login = $this->getConfiguration("login"); // on récupère le login
+		$hostIP = $this->getConfiguration("ipAddress"); // on récupère l'adresseIP
 		log::add('dahua', 'debug', 'Login utilisé : ' . $login . ' - Ip du portier : ' . $hostIP .''); 
-		log::add('dahua', 'debug', 'ActionType : ' . $actionType . ' - Nom du portier : ' . $portierHostName . ' - Ip du portier : ' . $portierHostIpAddress . ''); 
+		log::add('dahua', 'debug', 'ActionType : ' . $actionType . ' - Nom du portier : ' . $portierHostName . ' - Ip du portier : ' . $hostIP . ''); 
 				
 		log::add('dahua', 'debug', 'ELSE - action autre qu\'un snapshot create ou remove');
 		//curl --user $login:$password --digest "http://192.168.50.110/cgi-bin/accessControl.cgi?action=openDoor&channel=1&UserID=101&Type=Remote"
