@@ -58,66 +58,66 @@ function addCmdToTable(_cmd) {
     jeedom.cmd.changeType($('#table_cmd tbody tr:last'), init(_cmd.subType));
 }
 
-function typefieldChange(){
-	if ($('#typefield').value() == 'vm') {
-    	$('#loginPassword').hide();
-		$('#passwordESXi').hide();
-		$('#ESXiIpAddress').hide();
-		$('#ESXIHostLabel').show();
-		$('#esxiHostfield').show();
-		$('#nbSnapLabel').show();
-		$('#ipAddressLabelRightPartOfPage').show();		
-		$('#ipAddressfield').show();		
-	}else { 
-		$('#loginPassword').show();
-		$('#passwordESXi').show();
-		$('#ESXiIpAddress').show();
-		$('#ESXIHostLabel').hide();
-		$('#esxiHostfield').hide();
-		$('#nbSnapLabel').hide();
-		$('#ipAddressLabelRightPartOfPage').hide();		
-		$('#ipAddressfield').hide();		
-	}
-}
+// function typefieldChange(){
+	// if ($('#typefield').value() == 'vm') {
+    	// $('#loginPassword').hide();
+		// $('#passwordESXi').hide();
+		// $('#ESXiIpAddress').hide();
+		// $('#ESXIHostLabel').show();
+		// $('#esxiHostfield').show();
+		// $('#nbSnapLabel').show();
+		// $('#ipAddressLabelRightPartOfPage').show();		
+		// $('#ipAddressfield').show();		
+	// }else { 
+		// $('#loginPassword').show();
+		// $('#passwordESXi').show();
+		// $('#ESXiIpAddress').show();
+		// $('#ESXIHostLabel').hide();
+		// $('#esxiHostfield').hide();
+		// $('#nbSnapLabel').hide();
+		// $('#ipAddressLabelRightPartOfPage').hide();		
+		// $('#ipAddressfield').hide();		
+	// }
+// }
   
-$( "#typefield" ).change(function(){
-  setTimeout(typefieldChange,100);
-});
+// $( "#typefield" ).change(function(){
+  // setTimeout(typefieldChange,100);
+// });
 
 // Affichage de la page health 
-$('#bt_healthdahua').on('click', function () {
-	console.log("On appelle la modal Health");
-	$('#md_modal').dialog({title: "{{Santé dahua}}"});
-	$('#md_modal').load('index.php?v=d&plugin=dahua&modal=health').dialog('open');
-});
+// $('#bt_healthdahua').on('click', function () {
+	// console.log("On appelle la modal Health");
+	// $('#md_modal').dialog({title: "{{Santé dahua}}"});
+	// $('#md_modal').load('index.php?v=d&plugin=dahua&modal=health').dialog('open');
+// });
 
 // Appel à la fonction refresh de l'ESXi (bouton synchroniser à gauche de chaque ESXi)
-$('.synchronisation').on('click', function () {
-	console.log("On appelle la fonction Synchroniser de l'ESXI nommé : ");
-	var id = $(this).attr('data-id');
-	console.log(id);
-	$.ajax({
-        type: "POST",
-        url: "plugins/dahua/core/ajax/dahua.ajax.php",
-        data: {
-            action: "synchronisation",
-            id: id,
-        },
-        dataType: 'json',
-        error: function (request, status, error) {
-            handleAjaxError(request, status, error);
-        },
-        success: function (data) {
-            if (data.state != 'ok') {
-                $('#div_alert').showAlert({message: data.result, level: 'danger'});
-                return;
-            }
-			//window.location.reload(); // Recharge la page, mais si on sort d'une sauvegarde d'un équipement on se retrouve à retourner dans l'équipement après avoir cliqué sur le bouton synchroniser
-			//console.log("On affichage la valeur de window.location : "); // Affiche l'url entière
-			//console.log(window.location);
-			//console.log("On affichage la valeur de window.origin : "); // affiche tout ce qui est avant le premier / que l'on trouve après le nom du site
-			//console.log(window.location.origin);
-			window.location.assign(window.location.origin+'/index.php?v=d&m=dahua&p=dahua'); 
-        }
-    });
-});
+// $('.synchronisation').on('click', function () {
+	// console.log("On appelle la fonction Synchroniser de l'ESXI nommé : ");
+	// var id = $(this).attr('data-id');
+	// console.log(id);
+	// $.ajax({
+        // type: "POST",
+        // url: "plugins/dahua/core/ajax/dahua.ajax.php",
+        // data: {
+            // action: "synchronisation",
+            // id: id,
+        // },
+        // dataType: 'json',
+        // error: function (request, status, error) {
+            // handleAjaxError(request, status, error);
+        // },
+        // success: function (data) {
+            // if (data.state != 'ok') {
+                // $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                // return;
+            // }
+			//////////////window.location.reload(); // Recharge la page, mais si on sort d'une sauvegarde d'un équipement on se retrouve à retourner dans l'équipement après avoir cliqué sur le bouton synchroniser
+			//////////////console.log("On affichage la valeur de window.location : "); // Affiche l'url entière
+			//////////////console.log(window.location);
+			//////////////console.log("On affichage la valeur de window.origin : "); // affiche tout ce qui est avant le premier / que l'on trouve après le nom du site
+			//////////////console.log(window.location.origin);
+			// window.location.assign(window.location.origin+'/index.php?v=d&m=dahua&p=dahua'); 
+        // }
+    // });
+// });

@@ -32,11 +32,11 @@ function console_log($output, $with_script_tags = true) {
 			<br>
 			<span>{{Configuration}}</span>
 		</div>
-		<div class="cursor eqLogicAction logoSecondary" id="bt_healthdahua"> <!-- l'action est traitée dans le dahua.js -->
-			<i class="fas fa-medkit"></i>
+		<!--<div class="cursor eqLogicAction logoSecondary" id="bt_healthdahua"> <!-- l'action est traitée dans le dahua.js -->
+		<!--	<i class="fas fa-medkit"></i>
 			<br>
 			<span>{{Santé}}</span>
-		</div>
+		</div>-->
 	</div>
 	<legend><i class="fas fa-table"></i> {{Mes équipements Dahua}}</legend>
 		<input class="form-control" placeholder="{{Chercher parmis vos équipements}}" id="in_searchEqlogic" />
