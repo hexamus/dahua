@@ -161,7 +161,7 @@ class dahua extends eqLogic {
 		log::add('dahua', 'debug', 'ActionType : ' . $actionType . ' - Nom du portier : ' . $portierHostName . ' - Ip du portier : ' . $hostIP . ''); 
 				
 		//curl --user $login:$password --digest "http://192.168.50.110/cgi-bin/accessControl.cgi?action=openDoor&channel=1&UserID=101&Type=Remote"
-		$request = 'curl --user $login:$password --digest "http://".$hostIP."/cgi-bin/accessControl.cgi?action=".$actionType."&channel=1&UserID=101&Type=Remote";'
+		$request = "curl --user $login:$password --digest \"http://\".$hostIP.\"/cgi-bin/accessControl.cgi?action=\".$actionType.\"&channel=1&UserID=101&Type=Remote\";"
 		log::add('dahua', 'debug', 'Contenu de la requête : ' . $request .'');
 		
 				
