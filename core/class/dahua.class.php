@@ -160,9 +160,10 @@ class dahua extends eqLogic {
 		log::add('dahua', 'debug', 'Login utilisé : ' . $login . ' - Ip du portier : ' . $hostIP .''); 
 		log::add('dahua', 'debug', 'ActionType : ' . $actionType . ' - Nom du portier : ' . $portierHostName . ' - Ip du portier : ' . $hostIP . ''); 
 				
-		log::add('dahua', 'debug', 'ELSE - action autre qu\'un snapshot create ou remove');
 		//curl --user $login:$password --digest "http://192.168.50.110/cgi-bin/accessControl.cgi?action=openDoor&channel=1&UserID=101&Type=Remote"
-	//curl --user $login:$password --digest "http://".$hostIP."/cgi-bin/accessControl.cgi?action=".$actionType."&channel=1&UserID=101&Type=Remote";
+		$request = 'curl --user $login:$password --digest "http://".$hostIP."/cgi-bin/accessControl.cgi?action=".$actionType."&channel=1&UserID=101&Type=Remote";'
+		log::add('dahua', 'debug', 'Contenu de la requête : ' . $request .'');
+		
 				
 		log::add('dahua', 'info', 'Fin fonction actionOnPortier'); 
 		//return $result; // a voir ce que l'on peut faire de ça, besoin réel ?	
