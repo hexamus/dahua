@@ -57,7 +57,8 @@ function console_log($output, $with_script_tags = true) {
 				$opacity = ($eqLogicDahua->getIsEnable()) ? '' : 'disableCard';
 				echo '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogicDahua->getId() . '">';
 				////On affiche une image différente pour le serveur ESXi pour le répérer plus facilement
-					echo '<img src="plugins/dahua/docs/assets/images/icone_esxi.png">';
+					echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
+					//echo '<img src="plugins/dahua/docs/assets/images/icone_esxi.png">';
 					echo '<br>';
 					echo '<span class="name">' . $eqLogicDahua->getHumanName(true, true) . '</span>';
 					echo '</div>';
