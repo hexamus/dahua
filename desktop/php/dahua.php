@@ -180,7 +180,7 @@ function console_log($output, $with_script_tags = true) {
 					<div class="form-group" id="dahuaIpAddress">
 						<label class="col-sm-3 control-label">{{Adresse IP de votre équipement Dahua}}</label>
 						<div class="col-sm-6">
-							<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="ipAddress" placeholder="Au format XXX.XXX.XXX.XXX"/>
+							<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="DahuaIpAddress" placeholder="Au format XXX.XXX.XXX.XXX"/>
 						</div>
 					</div>	
 					<div id="loginPassword">				  
